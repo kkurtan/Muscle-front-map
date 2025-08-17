@@ -231,7 +231,7 @@
                 if (!t || !t.tagName) return;
                 var tn = t.tagName.toLowerCase();
                 if (['path','polygon','polyline','ellipse','circle'].indexOf(tn) === -1) return;
-                if (!t.classList.contains('muscle')) return;
+                if (!t.classList.contains('muscle') && !t.classList.contains('tooltip-trigger')) return;
                 t.classList.toggle('active');
                 var payload = {type:'muscleSelect', id: t.id||null, base: t.getAttribute('data-muscle-base')||null, side: t.getAttribute('data-muscle-side')||null, active: t.classList.contains('active')};
                 try{ window.parent && window.parent.postMessage(payload, '*'); }catch(e){}
